@@ -4,7 +4,7 @@ use core::marker::PhantomData;
 use core::net::{Ipv6Addr, SocketAddrV6};
 use core::ptr::addr_of_mut;
 
-use log::{debug, info, trace};
+use ::log::{debug, info, trace};
 
 use crate::sys::{
     esp, esp_openthread_get_instance, otDnsTxtEntry, otError, otError_OT_ERROR_INVALID_ARGS,

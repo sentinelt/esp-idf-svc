@@ -14,7 +14,7 @@ use alloc::boxed::Box;
 use alloc::sync::Arc;
 
 #[allow(unused)]
-use log::{debug, info};
+use ::log::{debug, info, warn};
 
 use crate::eventloop::{EspEventDeserializer, EspEventSource, EspSystemEventLoop};
 use crate::hal::delay;
@@ -2119,7 +2119,7 @@ impl EspEventDeserializer for ThreadEvent {
             ))]
             esp_openthread_event_t_OPENTHREAD_EVENT_DATASET_CHANGED => ThreadEvent::DatasetChanged,
             _ => {
-                ::log::warn!("ThreadEvent: unknown event ID {event_id}, ignoring");
+                warn!("ThreadEvent: unknown event ID {event_id}, ignoring");
                 ThreadEvent::Other(event_id as i32)
             }
         }
